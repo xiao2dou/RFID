@@ -1,6 +1,6 @@
 ﻿namespace FRID
 {
-    partial class Main
+    partial class Form_Main
     {
         /// <summary>
         /// Required designer variable.
@@ -30,16 +30,16 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox_systemTime = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox_teacherName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox_courseName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox_courseName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox_teacherName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox_systemTime = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +76,57 @@
             this.tabPage1.Tag = "";
             this.tabPage1.Text = "主页";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBox_systemTime
+            // 
+            this.textBox_systemTime.Location = new System.Drawing.Point(522, 16);
+            this.textBox_systemTime.Name = "textBox_systemTime";
+            this.textBox_systemTime.ReadOnly = true;
+            this.textBox_systemTime.Size = new System.Drawing.Size(100, 21);
+            this.textBox_systemTime.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(462, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "系统时间";
+            // 
+            // textBox_teacherName
+            // 
+            this.textBox_teacherName.Location = new System.Drawing.Point(296, 17);
+            this.textBox_teacherName.Name = "textBox_teacherName";
+            this.textBox_teacherName.ReadOnly = true;
+            this.textBox_teacherName.Size = new System.Drawing.Size(100, 21);
+            this.textBox_teacherName.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(236, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "授课教师";
+            // 
+            // textBox_courseName
+            // 
+            this.textBox_courseName.Location = new System.Drawing.Point(78, 17);
+            this.textBox_courseName.Name = "textBox_courseName";
+            this.textBox_courseName.ReadOnly = true;
+            this.textBox_courseName.Size = new System.Drawing.Size(100, 21);
+            this.textBox_courseName.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "课程名称";
             // 
             // button2
             // 
@@ -115,64 +166,13 @@
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "课程名称";
-            // 
-            // textBox_courseName
-            // 
-            this.textBox_courseName.Location = new System.Drawing.Point(78, 17);
-            this.textBox_courseName.Name = "textBox_courseName";
-            this.textBox_courseName.ReadOnly = true;
-            this.textBox_courseName.Size = new System.Drawing.Size(100, 21);
-            this.textBox_courseName.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(236, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "授课教师";
-            // 
-            // textBox_teacherName
-            // 
-            this.textBox_teacherName.Location = new System.Drawing.Point(296, 17);
-            this.textBox_teacherName.Name = "textBox_teacherName";
-            this.textBox_teacherName.ReadOnly = true;
-            this.textBox_teacherName.Size = new System.Drawing.Size(100, 21);
-            this.textBox_teacherName.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(462, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "系统时间";
-            // 
-            // textBox_systemTime
-            // 
-            this.textBox_systemTime.Location = new System.Drawing.Point(522, 16);
-            this.textBox_systemTime.Name = "textBox_systemTime";
-            this.textBox_systemTime.ReadOnly = true;
-            this.textBox_systemTime.Size = new System.Drawing.Size(100, 21);
-            this.textBox_systemTime.TabIndex = 7;
-            // 
-            // Main
+            // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 450);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Main";
+            this.Name = "Form_Main";
             this.Text = "考勤管理系统";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

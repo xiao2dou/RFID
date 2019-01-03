@@ -1,6 +1,6 @@
 ﻿namespace FRID
 {
-    partial class SignIn
+    partial class Form_SignIn
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignIn));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_SignIn));
             this.textBox_userName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,6 +66,7 @@
             // 
             this.textBox_password.Location = new System.Drawing.Point(268, 80);
             this.textBox_password.Name = "textBox_password";
+            this.textBox_password.PasswordChar = '*';
             this.textBox_password.Size = new System.Drawing.Size(100, 21);
             this.textBox_password.TabIndex = 3;
             // 
@@ -77,6 +78,7 @@
             this.button_signUp.TabIndex = 4;
             this.button_signUp.Text = "注册";
             this.button_signUp.UseVisualStyleBackColor = true;
+            this.button_signUp.Click += new System.EventHandler(this.button_signUp_Click);
             // 
             // button_signIn
             // 
@@ -88,7 +90,7 @@
             this.button_signIn.UseVisualStyleBackColor = true;
             this.button_signIn.Click += new System.EventHandler(this.button_signIn_Click);
             // 
-            // SignIn
+            // Form_SignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -100,9 +102,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox_userName);
-            this.Name = "SignIn";
+            this.Name = "Form_SignIn";
             this.Text = "考勤管理系统-欢迎使用";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

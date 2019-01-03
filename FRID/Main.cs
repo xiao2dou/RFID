@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FRID
 {
-    public partial class Main : Form
+    public partial class Form_Main : Form
     {
-        public Main()
+        public Form_Main()
         {
             InitializeComponent();
         }

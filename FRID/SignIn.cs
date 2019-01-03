@@ -10,23 +10,31 @@ using System.Windows.Forms;
 
 namespace FRID
 {
-    public partial class SignIn : Form
+    public partial class Form_SignIn : Form
     {
-        public SignIn()
+        public Form_SignIn()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button_signIn_Click(object sender, EventArgs e)
         {
+            string userName = textBox_userName.Text;
+            string password = textBox_password.Text;
+
             //用户校验
 
+            Form_Main fm = new Form_Main();
+            fm.Show();
 
+            Hide();
+        }
+
+        private void button_signUp_Click(object sender, EventArgs e)
+        {
+            //用户注册
+            Form_SignUp fm = new Form_SignUp();
+            fm.Show();
         }
     }
 }
