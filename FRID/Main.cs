@@ -206,13 +206,13 @@ namespace FRID
                 str += bytesData[i].ToString("X2");
             }
 
-            MessageBox.Show(Convert.ToString(str));
+            //MessageBox.Show(Convert.ToString(str));
 
             //textBox3.Text = str;
 
             //写数据库
 
-            MessageBox.Show("开卡成功！");
+            MessageBox.Show(stu_name+"开卡成功！\n卡号为："+str);
         }
         #region 请假登记
         private void leave_button_search_Click(object sender, EventArgs e)
@@ -250,7 +250,6 @@ namespace FRID
         {
             class_textBox_className.ReadOnly = false;
             class_textBox_classTime.ReadOnly = false;
-            class_textBox_teacherName.ReadOnly = false;
         }
         //保存课程修改
         private void class_button_saveEdit_Click(object sender, EventArgs e)

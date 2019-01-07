@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.main_button_confirm = new System.Windows.Forms.Button();
@@ -90,7 +90,6 @@
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.class_button_search = new System.Windows.Forms.Button();
             this.class_textBox_classNumber = new System.Windows.Forms.TextBox();
@@ -100,12 +99,27 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label_className = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.class_textBox_className = new System.Windows.Forms.TextBox();
             this.class_textBox_classTime = new System.Windows.Forms.TextBox();
-            this.class_textBox_teacherName = new System.Windows.Forms.TextBox();
             this.class_button_edit = new System.Windows.Forms.Button();
             this.class_button_saveEdit = new System.Windows.Forms.Button();
+            this.xk_textBox_classTime = new System.Windows.Forms.TextBox();
+            this.xk_textBox_className = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.xk_button_classSearch = new System.Windows.Forms.Button();
+            this.xk_textBox_classNumber = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.xk_button_stuSearch = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.xk_textBox_stuNumber = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.xk_textBox_stuClass = new System.Windows.Forms.TextBox();
+            this.xk_textBox_stuName = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.xk_comboBox = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -117,6 +131,7 @@
             this.tabControl3.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage9.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -223,7 +238,7 @@
             this.columnHeader4,
             this.columnHeader5});
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem9});
+            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(3, 111);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(699, 315);
@@ -358,7 +373,7 @@
             this.columnHeader13,
             this.columnHeader11});
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem10});
+            listViewItem2});
             this.listView2.Location = new System.Drawing.Point(-1, -3);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(699, 404);
@@ -637,8 +652,7 @@
             this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader14,
             this.columnHeader15,
-            this.columnHeader16,
-            this.columnHeader17});
+            this.columnHeader16});
             this.listView3.Location = new System.Drawing.Point(0, 0);
             this.listView3.Name = "listView3";
             this.listView3.Size = new System.Drawing.Size(695, 405);
@@ -649,27 +663,24 @@
             // columnHeader14
             // 
             this.columnHeader14.Text = "课程号";
+            this.columnHeader14.Width = 168;
             // 
             // columnHeader15
             // 
             this.columnHeader15.Text = "课程名称";
+            this.columnHeader15.Width = 258;
             // 
             // columnHeader16
             // 
             this.columnHeader16.Text = "课时";
-            // 
-            // columnHeader17
-            // 
-            this.columnHeader17.Text = "教师";
+            this.columnHeader16.Width = 145;
             // 
             // tabPage9
             // 
             this.tabPage9.Controls.Add(this.class_button_saveEdit);
             this.tabPage9.Controls.Add(this.class_button_edit);
-            this.tabPage9.Controls.Add(this.class_textBox_teacherName);
             this.tabPage9.Controls.Add(this.class_textBox_classTime);
             this.tabPage9.Controls.Add(this.class_textBox_className);
-            this.tabPage9.Controls.Add(this.label17);
             this.tabPage9.Controls.Add(this.label16);
             this.tabPage9.Controls.Add(this.label_className);
             this.tabPage9.Controls.Add(this.class_button_search);
@@ -722,12 +733,29 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.xk_comboBox);
+            this.tabPage4.Controls.Add(this.label22);
+            this.tabPage4.Controls.Add(this.xk_button_stuSearch);
+            this.tabPage4.Controls.Add(this.button3);
+            this.tabPage4.Controls.Add(this.label19);
+            this.tabPage4.Controls.Add(this.label20);
+            this.tabPage4.Controls.Add(this.xk_textBox_stuNumber);
+            this.tabPage4.Controls.Add(this.label21);
+            this.tabPage4.Controls.Add(this.xk_textBox_stuClass);
+            this.tabPage4.Controls.Add(this.xk_textBox_stuName);
+            this.tabPage4.Controls.Add(this.xk_textBox_classTime);
+            this.tabPage4.Controls.Add(this.xk_textBox_className);
+            this.tabPage4.Controls.Add(this.label15);
+            this.tabPage4.Controls.Add(this.label17);
+            this.tabPage4.Controls.Add(this.xk_button_classSearch);
+            this.tabPage4.Controls.Add(this.xk_textBox_classNumber);
+            this.tabPage4.Controls.Add(this.label18);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(702, 426);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.Text = "选课管理";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // timer1
@@ -753,15 +781,6 @@
             this.label16.TabIndex = 5;
             this.label16.Text = "课时";
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(21, 127);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(29, 12);
-            this.label17.TabIndex = 6;
-            this.label17.Text = "教师";
-            // 
             // class_textBox_className
             // 
             this.class_textBox_className.Location = new System.Drawing.Point(98, 52);
@@ -777,14 +796,6 @@
             this.class_textBox_classTime.ReadOnly = true;
             this.class_textBox_classTime.Size = new System.Drawing.Size(100, 21);
             this.class_textBox_classTime.TabIndex = 8;
-            // 
-            // class_textBox_teacherName
-            // 
-            this.class_textBox_teacherName.Location = new System.Drawing.Point(98, 117);
-            this.class_textBox_teacherName.Name = "class_textBox_teacherName";
-            this.class_textBox_teacherName.ReadOnly = true;
-            this.class_textBox_teacherName.Size = new System.Drawing.Size(100, 21);
-            this.class_textBox_teacherName.TabIndex = 9;
             // 
             // class_button_edit
             // 
@@ -807,6 +818,150 @@
             this.class_button_saveEdit.UseVisualStyleBackColor = true;
             this.class_button_saveEdit.Visible = false;
             this.class_button_saveEdit.Click += new System.EventHandler(this.class_button_saveEdit_Click);
+            // 
+            // xk_textBox_classTime
+            // 
+            this.xk_textBox_classTime.Location = new System.Drawing.Point(157, 135);
+            this.xk_textBox_classTime.Name = "xk_textBox_classTime";
+            this.xk_textBox_classTime.ReadOnly = true;
+            this.xk_textBox_classTime.Size = new System.Drawing.Size(100, 21);
+            this.xk_textBox_classTime.TabIndex = 15;
+            // 
+            // xk_textBox_className
+            // 
+            this.xk_textBox_className.Location = new System.Drawing.Point(157, 101);
+            this.xk_textBox_className.Name = "xk_textBox_className";
+            this.xk_textBox_className.ReadOnly = true;
+            this.xk_textBox_className.Size = new System.Drawing.Size(100, 21);
+            this.xk_textBox_className.TabIndex = 14;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(82, 145);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(29, 12);
+            this.label15.TabIndex = 13;
+            this.label15.Text = "课时";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(80, 111);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(53, 12);
+            this.label17.TabIndex = 12;
+            this.label17.Text = "课程名称";
+            // 
+            // xk_button_classSearch
+            // 
+            this.xk_button_classSearch.Location = new System.Drawing.Point(263, 68);
+            this.xk_button_classSearch.Name = "xk_button_classSearch";
+            this.xk_button_classSearch.Size = new System.Drawing.Size(47, 23);
+            this.xk_button_classSearch.TabIndex = 11;
+            this.xk_button_classSearch.Text = "查询";
+            this.xk_button_classSearch.UseVisualStyleBackColor = true;
+            // 
+            // xk_textBox_classNumber
+            // 
+            this.xk_textBox_classNumber.Location = new System.Drawing.Point(157, 68);
+            this.xk_textBox_classNumber.Name = "xk_textBox_classNumber";
+            this.xk_textBox_classNumber.Size = new System.Drawing.Size(100, 21);
+            this.xk_textBox_classNumber.TabIndex = 10;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(78, 77);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(41, 12);
+            this.label18.TabIndex = 9;
+            this.label18.Text = "课程号";
+            // 
+            // xk_button_stuSearch
+            // 
+            this.xk_button_stuSearch.Location = new System.Drawing.Point(551, 64);
+            this.xk_button_stuSearch.Name = "xk_button_stuSearch";
+            this.xk_button_stuSearch.Size = new System.Drawing.Size(39, 23);
+            this.xk_button_stuSearch.TabIndex = 35;
+            this.xk_button_stuSearch.Text = "查询";
+            this.xk_button_stuSearch.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(289, 282);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 34;
+            this.button3.Text = "确认选课";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(360, 102);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(29, 12);
+            this.label19.TabIndex = 28;
+            this.label19.Text = "姓名";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(362, 137);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(29, 12);
+            this.label20.TabIndex = 29;
+            this.label20.Text = "班级";
+            // 
+            // xk_textBox_stuNumber
+            // 
+            this.xk_textBox_stuNumber.Location = new System.Drawing.Point(420, 66);
+            this.xk_textBox_stuNumber.Name = "xk_textBox_stuNumber";
+            this.xk_textBox_stuNumber.Size = new System.Drawing.Size(100, 21);
+            this.xk_textBox_stuNumber.TabIndex = 33;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(359, 69);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(29, 12);
+            this.label21.TabIndex = 30;
+            this.label21.Text = "学号";
+            // 
+            // xk_textBox_stuClass
+            // 
+            this.xk_textBox_stuClass.Location = new System.Drawing.Point(423, 137);
+            this.xk_textBox_stuClass.Name = "xk_textBox_stuClass";
+            this.xk_textBox_stuClass.ReadOnly = true;
+            this.xk_textBox_stuClass.Size = new System.Drawing.Size(100, 21);
+            this.xk_textBox_stuClass.TabIndex = 32;
+            // 
+            // xk_textBox_stuName
+            // 
+            this.xk_textBox_stuName.Location = new System.Drawing.Point(423, 102);
+            this.xk_textBox_stuName.Name = "xk_textBox_stuName";
+            this.xk_textBox_stuName.ReadOnly = true;
+            this.xk_textBox_stuName.Size = new System.Drawing.Size(100, 21);
+            this.xk_textBox_stuName.TabIndex = 31;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(78, 180);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(41, 12);
+            this.label22.TabIndex = 36;
+            this.label22.Text = "教学班";
+            // 
+            // xk_comboBox
+            // 
+            this.xk_comboBox.FormattingEnabled = true;
+            this.xk_comboBox.Location = new System.Drawing.Point(157, 177);
+            this.xk_comboBox.Name = "xk_comboBox";
+            this.xk_comboBox.Size = new System.Drawing.Size(121, 20);
+            this.xk_comboBox.TabIndex = 37;
             // 
             // Form_Main
             // 
@@ -832,6 +987,8 @@
             this.tabPage8.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -898,20 +1055,34 @@
         private System.Windows.Forms.ColumnHeader columnHeader14;
         private System.Windows.Forms.ColumnHeader columnHeader15;
         private System.Windows.Forms.ColumnHeader columnHeader16;
-        private System.Windows.Forms.ColumnHeader columnHeader17;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.Button class_button_search;
         private System.Windows.Forms.TextBox class_textBox_classNumber;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button class_button_addClass;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label_className;
-        private System.Windows.Forms.TextBox class_textBox_teacherName;
         private System.Windows.Forms.TextBox class_textBox_classTime;
         private System.Windows.Forms.TextBox class_textBox_className;
         private System.Windows.Forms.Button class_button_saveEdit;
         private System.Windows.Forms.Button class_button_edit;
+        private System.Windows.Forms.Button xk_button_stuSearch;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox xk_textBox_stuNumber;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox xk_textBox_stuClass;
+        private System.Windows.Forms.TextBox xk_textBox_stuName;
+        private System.Windows.Forms.TextBox xk_textBox_classTime;
+        private System.Windows.Forms.TextBox xk_textBox_className;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button xk_button_classSearch;
+        private System.Windows.Forms.TextBox xk_textBox_classNumber;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox xk_comboBox;
+        private System.Windows.Forms.Label label22;
     }
 }
