@@ -24,7 +24,7 @@ namespace FRID
             string repassword = textBox_repassword.Text;
             if (password != repassword)
             {
-                MessageBox.Show("两次密码不正确，请确认");
+                MessageBox.Show("两次密码不一致，请确认");
                 textBox_password.Clear();
                 textBox_repassword.Clear();
             }
