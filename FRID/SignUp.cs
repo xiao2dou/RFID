@@ -29,7 +29,7 @@ namespace FRID
                 textBox_repassword.Clear();
             }
 
-            //写入数据库
+            //查、改数据库（用户注册）
 
             Hide();
         }

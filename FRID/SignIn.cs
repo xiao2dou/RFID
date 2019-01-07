@@ -32,7 +32,7 @@ namespace FRID
 
         private void button_signUp_Click(object sender, EventArgs e)
         {
-            //用户注册
+            //转用户注册
             Form_SignUp fm = new Form_SignUp();
             fm.Show();
         }
