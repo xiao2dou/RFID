@@ -71,6 +71,21 @@ namespace FRID
 
             MessageBox.Show("开卡成功！");
         }
+        #region 请假登记
+        private void leave_button_search_Click(object sender, EventArgs e)
+        {
+            string stu_number = leave_textBox_stu_number.Text;
 
+            //查学生姓名、学号
+
+            //显示
+        }
+
+        private void leave_button_comfirm_leave_Click(object sender, EventArgs e)
+        {
+            //请假
+        }
+
+        #endregion
     }
 }

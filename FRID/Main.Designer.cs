@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.main_button_confirm = new System.Windows.Forms.Button();
@@ -82,6 +82,20 @@
             this.leave_textBox_stu_name = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.listView3 = new System.Windows.Forms.ListView();
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.class_button_addClass = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.class_textBox_classNumber = new System.Windows.Forms.TextBox();
+            this.class_button_search = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -89,6 +103,10 @@
             this.tabPage7.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.tabPage8.SuspendLayout();
+            this.tabPage9.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -195,7 +213,7 @@
             this.columnHeader4,
             this.columnHeader5});
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(3, 111);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(699, 315);
@@ -326,10 +344,12 @@
             this.columnHeader8,
             this.columnHeader9,
             this.columnHeader10,
+            this.columnHeader12,
+            this.columnHeader13,
             this.columnHeader11});
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
-            this.listView2.Location = new System.Drawing.Point(-2, 0);
+            listViewItem2});
+            this.listView2.Location = new System.Drawing.Point(-1, -3);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(699, 404);
             this.listView2.TabIndex = 7;
@@ -352,17 +372,17 @@
             // columnHeader9
             // 
             this.columnHeader9.Text = "联系电话";
-            this.columnHeader9.Width = 147;
+            this.columnHeader9.Width = 97;
             // 
             // columnHeader10
             // 
             this.columnHeader10.Text = "出勤率";
-            this.columnHeader10.Width = 136;
+            this.columnHeader10.Width = 63;
             // 
             // columnHeader11
             // 
             this.columnHeader11.Text = "备注";
-            this.columnHeader11.Width = 224;
+            this.columnHeader11.Width = 138;
             // 
             // tabPage5
             // 
@@ -487,6 +507,7 @@
             this.leave_button_search.TabIndex = 27;
             this.leave_button_search.Text = "查询";
             this.leave_button_search.UseVisualStyleBackColor = true;
+            this.leave_button_search.Click += new System.EventHandler(this.leave_button_search_Click);
             // 
             // label10
             // 
@@ -506,6 +527,7 @@
             this.leave_button_comfirm_leave.TabIndex = 26;
             this.leave_button_comfirm_leave.Text = "确认请假";
             this.leave_button_comfirm_leave.UseVisualStyleBackColor = true;
+            this.leave_button_comfirm_leave.Click += new System.EventHandler(this.leave_button_comfirm_leave_Click);
             // 
             // label11
             // 
@@ -559,12 +581,13 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.tabControl3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(702, 426);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "请假登记";
+            this.tabPage3.Text = "课程管理";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage4
@@ -576,6 +599,116 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "出勤成绩";
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "缺勤次数";
+            // 
+            // tabControl3
+            // 
+            this.tabControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl3.Controls.Add(this.tabPage8);
+            this.tabControl3.Controls.Add(this.tabPage9);
+            this.tabControl3.Location = new System.Drawing.Point(0, 3);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(702, 427);
+            this.tabControl3.TabIndex = 0;
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.listView3);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(694, 401);
+            this.tabPage8.TabIndex = 0;
+            this.tabPage8.Text = "课程列表";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.class_button_search);
+            this.tabPage9.Controls.Add(this.class_textBox_classNumber);
+            this.tabPage9.Controls.Add(this.label12);
+            this.tabPage9.Controls.Add(this.class_button_addClass);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(694, 401);
+            this.tabPage9.TabIndex = 1;
+            this.tabPage9.Text = "课程管理";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // listView3
+            // 
+            this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader14,
+            this.columnHeader15,
+            this.columnHeader16,
+            this.columnHeader17});
+            this.listView3.Location = new System.Drawing.Point(0, 0);
+            this.listView3.Name = "listView3";
+            this.listView3.Size = new System.Drawing.Size(695, 405);
+            this.listView3.TabIndex = 0;
+            this.listView3.UseCompatibleStateImageBehavior = false;
+            this.listView3.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "课程号";
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "课程名称";
+            // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Text = "课时";
+            // 
+            // columnHeader17
+            // 
+            this.columnHeader17.Text = "教师";
+            // 
+            // class_button_addClass
+            // 
+            this.class_button_addClass.Location = new System.Drawing.Point(41, 20);
+            this.class_button_addClass.Name = "class_button_addClass";
+            this.class_button_addClass.Size = new System.Drawing.Size(75, 23);
+            this.class_button_addClass.TabIndex = 0;
+            this.class_button_addClass.Text = "添加课程";
+            this.class_button_addClass.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(41, 85);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 12);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "课程号";
+            // 
+            // class_textBox_classNumber
+            // 
+            this.class_textBox_classNumber.Location = new System.Drawing.Point(88, 82);
+            this.class_textBox_classNumber.Name = "class_textBox_classNumber";
+            this.class_textBox_classNumber.Size = new System.Drawing.Size(100, 21);
+            this.class_textBox_classNumber.TabIndex = 2;
+            // 
+            // class_button_search
+            // 
+            this.class_button_search.Location = new System.Drawing.Point(208, 82);
+            this.class_button_search.Name = "class_button_search";
+            this.class_button_search.Size = new System.Drawing.Size(47, 23);
+            this.class_button_search.TabIndex = 3;
+            this.class_button_search.Text = "搜索";
+            this.class_button_search.UseVisualStyleBackColor = true;
             // 
             // Form_Main
             // 
@@ -596,6 +729,11 @@
             this.tabPage5.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -654,5 +792,19 @@
         private System.Windows.Forms.TextBox leave_textBox_stu_class;
         private System.Windows.Forms.TextBox leave_textBox_stu_name;
         private System.Windows.Forms.Button main_button_confirm;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ColumnHeader columnHeader13;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.ColumnHeader columnHeader14;
+        private System.Windows.Forms.ColumnHeader columnHeader15;
+        private System.Windows.Forms.ColumnHeader columnHeader16;
+        private System.Windows.Forms.ColumnHeader columnHeader17;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.Button class_button_search;
+        private System.Windows.Forms.TextBox class_textBox_classNumber;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button class_button_addClass;
     }
 }
