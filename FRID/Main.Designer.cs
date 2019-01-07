@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.main_button_confirm = new System.Windows.Forms.Button();
@@ -98,6 +98,14 @@
             this.class_button_addClass = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label_className = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.class_textBox_className = new System.Windows.Forms.TextBox();
+            this.class_textBox_classTime = new System.Windows.Forms.TextBox();
+            this.class_textBox_teacherName = new System.Windows.Forms.TextBox();
+            this.class_button_edit = new System.Windows.Forms.Button();
+            this.class_button_saveEdit = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -215,7 +223,7 @@
             this.columnHeader4,
             this.columnHeader5});
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem9});
             this.listView1.Location = new System.Drawing.Point(3, 111);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(699, 315);
@@ -350,7 +358,7 @@
             this.columnHeader13,
             this.columnHeader11});
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
+            listViewItem10});
             this.listView2.Location = new System.Drawing.Point(-1, -3);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(699, 404);
@@ -656,6 +664,14 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.class_button_saveEdit);
+            this.tabPage9.Controls.Add(this.class_button_edit);
+            this.tabPage9.Controls.Add(this.class_textBox_teacherName);
+            this.tabPage9.Controls.Add(this.class_textBox_classTime);
+            this.tabPage9.Controls.Add(this.class_textBox_className);
+            this.tabPage9.Controls.Add(this.label17);
+            this.tabPage9.Controls.Add(this.label16);
+            this.tabPage9.Controls.Add(this.label_className);
             this.tabPage9.Controls.Add(this.class_button_search);
             this.tabPage9.Controls.Add(this.class_textBox_classNumber);
             this.tabPage9.Controls.Add(this.label12);
@@ -670,16 +686,17 @@
             // 
             // class_button_search
             // 
-            this.class_button_search.Location = new System.Drawing.Point(208, 82);
+            this.class_button_search.Location = new System.Drawing.Point(204, 19);
             this.class_button_search.Name = "class_button_search";
             this.class_button_search.Size = new System.Drawing.Size(47, 23);
             this.class_button_search.TabIndex = 3;
             this.class_button_search.Text = "搜索";
             this.class_button_search.UseVisualStyleBackColor = true;
+            this.class_button_search.Click += new System.EventHandler(this.class_button_search_Click);
             // 
             // class_textBox_classNumber
             // 
-            this.class_textBox_classNumber.Location = new System.Drawing.Point(88, 82);
+            this.class_textBox_classNumber.Location = new System.Drawing.Point(98, 19);
             this.class_textBox_classNumber.Name = "class_textBox_classNumber";
             this.class_textBox_classNumber.Size = new System.Drawing.Size(100, 21);
             this.class_textBox_classNumber.TabIndex = 2;
@@ -687,7 +704,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(41, 85);
+            this.label12.Location = new System.Drawing.Point(19, 28);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 12);
             this.label12.TabIndex = 1;
@@ -695,12 +712,13 @@
             // 
             // class_button_addClass
             // 
-            this.class_button_addClass.Location = new System.Drawing.Point(41, 20);
+            this.class_button_addClass.Location = new System.Drawing.Point(337, 19);
             this.class_button_addClass.Name = "class_button_addClass";
             this.class_button_addClass.Size = new System.Drawing.Size(75, 23);
             this.class_button_addClass.TabIndex = 0;
             this.class_button_addClass.Text = "添加课程";
             this.class_button_addClass.UseVisualStyleBackColor = true;
+            this.class_button_addClass.Click += new System.EventHandler(this.class_button_addClass_Click);
             // 
             // tabPage4
             // 
@@ -716,6 +734,79 @@
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label_className
+            // 
+            this.label_className.AutoSize = true;
+            this.label_className.Location = new System.Drawing.Point(21, 62);
+            this.label_className.Name = "label_className";
+            this.label_className.Size = new System.Drawing.Size(53, 12);
+            this.label_className.TabIndex = 4;
+            this.label_className.Text = "课程名称";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(23, 96);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(29, 12);
+            this.label16.TabIndex = 5;
+            this.label16.Text = "课时";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(21, 127);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(29, 12);
+            this.label17.TabIndex = 6;
+            this.label17.Text = "教师";
+            // 
+            // class_textBox_className
+            // 
+            this.class_textBox_className.Location = new System.Drawing.Point(98, 52);
+            this.class_textBox_className.Name = "class_textBox_className";
+            this.class_textBox_className.ReadOnly = true;
+            this.class_textBox_className.Size = new System.Drawing.Size(100, 21);
+            this.class_textBox_className.TabIndex = 7;
+            // 
+            // class_textBox_classTime
+            // 
+            this.class_textBox_classTime.Location = new System.Drawing.Point(98, 86);
+            this.class_textBox_classTime.Name = "class_textBox_classTime";
+            this.class_textBox_classTime.ReadOnly = true;
+            this.class_textBox_classTime.Size = new System.Drawing.Size(100, 21);
+            this.class_textBox_classTime.TabIndex = 8;
+            // 
+            // class_textBox_teacherName
+            // 
+            this.class_textBox_teacherName.Location = new System.Drawing.Point(98, 117);
+            this.class_textBox_teacherName.Name = "class_textBox_teacherName";
+            this.class_textBox_teacherName.ReadOnly = true;
+            this.class_textBox_teacherName.Size = new System.Drawing.Size(100, 21);
+            this.class_textBox_teacherName.TabIndex = 9;
+            // 
+            // class_button_edit
+            // 
+            this.class_button_edit.Location = new System.Drawing.Point(35, 171);
+            this.class_button_edit.Name = "class_button_edit";
+            this.class_button_edit.Size = new System.Drawing.Size(75, 23);
+            this.class_button_edit.TabIndex = 10;
+            this.class_button_edit.Text = "编辑";
+            this.class_button_edit.UseVisualStyleBackColor = true;
+            this.class_button_edit.Visible = false;
+            this.class_button_edit.Click += new System.EventHandler(this.class_button_edit_Click);
+            // 
+            // class_button_saveEdit
+            // 
+            this.class_button_saveEdit.Location = new System.Drawing.Point(147, 171);
+            this.class_button_saveEdit.Name = "class_button_saveEdit";
+            this.class_button_saveEdit.Size = new System.Drawing.Size(75, 23);
+            this.class_button_saveEdit.TabIndex = 11;
+            this.class_button_saveEdit.Text = "保存";
+            this.class_button_saveEdit.UseVisualStyleBackColor = true;
+            this.class_button_saveEdit.Visible = false;
+            this.class_button_saveEdit.Click += new System.EventHandler(this.class_button_saveEdit_Click);
             // 
             // Form_Main
             // 
@@ -814,5 +905,13 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button class_button_addClass;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label_className;
+        private System.Windows.Forms.TextBox class_textBox_teacherName;
+        private System.Windows.Forms.TextBox class_textBox_classTime;
+        private System.Windows.Forms.TextBox class_textBox_className;
+        private System.Windows.Forms.Button class_button_saveEdit;
+        private System.Windows.Forms.Button class_button_edit;
     }
 }
