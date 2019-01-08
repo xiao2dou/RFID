@@ -39,7 +39,7 @@
             this.label_message = new System.Windows.Forms.Label();
             this.textBox_stu_number = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listView_main_stu = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -157,7 +157,7 @@
             this.tabPage1.Controls.Add(this.label_message);
             this.tabPage1.Controls.Add(this.textBox_stu_number);
             this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.listView1);
+            this.tabPage1.Controls.Add(this.listView_main_stu);
             this.tabPage1.Controls.Add(this.textBox_teacherName);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.textBox_courseName);
@@ -226,25 +226,25 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "应到人数";
             // 
-            // listView1
+            // listView_main_stu
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listView_main_stu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listView_main_stu.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            this.listView_main_stu.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.listView1.Location = new System.Drawing.Point(3, 111);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(699, 315);
-            this.listView1.TabIndex = 6;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView_main_stu.Location = new System.Drawing.Point(3, 111);
+            this.listView_main_stu.Name = "listView_main_stu";
+            this.listView_main_stu.Size = new System.Drawing.Size(699, 315);
+            this.listView_main_stu.TabIndex = 6;
+            this.listView_main_stu.UseCompatibleStateImageBehavior = false;
+            this.listView_main_stu.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -1007,7 +1007,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox_stu_number;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listView_main_stu;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Label label_message;

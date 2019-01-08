@@ -56,6 +56,8 @@ namespace FRID
 
         bool confirm_message = false;
         int classState = 0;//1表示上课，2表示下课，默认上课模式
+        string jxbNumber = "16032";//手动确定教学班号
+
         public Form_Main()
         {
             InitializeComponent();
@@ -83,9 +85,7 @@ namespace FRID
             string teacherName = "";
             string courseName = "";
 
-            string jxbNumber = "16032";//手动确定教学班号
             //查库，显示课名和教师名
-            //用户校验
             sql = "select jroom,jname,cname from course,JXB where course.cnum=JXB.cnum and jnum='" + jxbNumber + "'";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataReader sread = cmd.ExecuteReader();
@@ -126,6 +126,31 @@ namespace FRID
         {
             confirm_message = true;
             MessageBox.Show("课程信息已确认无误，您现在可以开始上课！");
+
+            //显示学生列表
+            sql = "select stname,student.stnum,class from student,JXB,sc where sc.jnum=JXB.jnum and sc.stnum=student.stnum and JXB.jnum='" + jxbNumber + "'";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader sread_stu = cmd.ExecuteReader();
+            try
+            {
+                while (sread_stu.Read())
+                {
+                    ListViewItem it = new ListViewItem();
+                    it.Text = sread_stu["stname"].ToString().TrimEnd();
+                    it.SubItems.Add(sread_stu["stnum"].ToString().TrimEnd());
+                    it.SubItems.Add(sread_stu["class"].ToString().TrimEnd());
+                    listView_main_stu.Items.Add(it);
+                }
+                sread_stu.Close();
+            }
+            catch (Exception msg)
+            {
+                throw new Exception(msg.ToString());
+            }
+            finally
+            {
+                sread_stu.Close();
+            }
         }
 
         //开始上课
