@@ -143,7 +143,7 @@ namespace FRID
                 {
 
                 }
-                else if (classState == 2)//下课
+                else if (classState == 2)//下课 
                 {
 
                 }
