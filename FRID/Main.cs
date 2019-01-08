@@ -50,7 +50,7 @@ namespace FRID
 
         #endregion
 
-        string consqlserver = "Data Source=.;Initial Catalog=test;Integrated Security=True;";//数据库连接语句
+        string consqlserver = "Data Source=.;Initial Catalog=classManager;Integrated Security=True;";//数据库连接语句
         string sql = null; //sql语句
         SqlConnection con = null;  //sql连接对象
 
@@ -64,13 +64,6 @@ namespace FRID
         //加载程序主页
         private void Form_Main_Load(object sender, EventArgs e)
         {
-            string time = DateTime.Now.ToLongDateString().ToString() + " " + DateTime.Now.DayOfWeek.ToString();
-            int week= 20;
-            string className = "C408";
-            label_message.Text = "现在是" + time + "，第" + week + "周\n" + "您所在的教室为" + className;
-
-            //查库，显示课名和教师名
-
             //打开USB串口
             try
             {
@@ -80,8 +73,50 @@ namespace FRID
             }
             catch
             {
-
+                MessageBox.Show("读卡器连接异常，请检查读卡器后重启软件");
             }
+
+            con = new SqlConnection(consqlserver);
+            con.Open();
+
+            string classroomName ="";
+            string teacherName = "";
+            string courseName = "";
+
+            string jxbNumber = "16032";//手动确定教学班号
+            //查库，显示课名和教师名
+            //用户校验
+            sql = "select jroom,jname,cname from course,JXB where course.cnum=JXB.cnum and jnum='" + jxbNumber + "'";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader sread = cmd.ExecuteReader();
+            try
+            {
+                if (sread.Read())
+                {
+                    classroomName=sread["jroom"].ToString().TrimEnd();
+                    teacherName= sread["jname"].ToString().TrimEnd();
+                    courseName = sread["cname"].ToString().TrimEnd();
+                }
+                else
+                {
+                    MessageBox.Show("当前无课程！");
+                }
+            }
+            catch (Exception msg)
+            {
+                throw new Exception(msg.ToString());
+            }
+            finally
+            {
+                sread.Close();
+            }
+
+            string time = DateTime.Now.ToLongDateString().ToString() + " " + DateTime.Now.DayOfWeek.ToString();
+            int week= 20;
+            label_message.Text = "现在是" + time + "，第" + week + "周\n" + "您所在的教室为" + classroomName;
+
+            textBox_courseName.Text = courseName;
+            textBox_teacherName.Text = teacherName;
 
         }
 
