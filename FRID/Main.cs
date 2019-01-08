@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.Runtime.InteropServices;
+using System.Data.SqlClient;
 
 namespace FRID
 {
@@ -49,6 +50,10 @@ namespace FRID
 
         #endregion
 
+        string consqlserver = "Data Source=.;Initial Catalog=test;Integrated Security=True;";//数据库连接语句
+        string sql = null; //sql语句
+        SqlConnection con = null;  //sql连接对象
+
         bool confirm_message = false;
         int classState = 0;//1表示上课，2表示下课，默认上课模式
         public Form_Main()
@@ -62,7 +67,7 @@ namespace FRID
             string time = DateTime.Now.ToLongDateString().ToString() + " " + DateTime.Now.DayOfWeek.ToString();
             int week= 20;
             string className = "C408";
-            label_time_message.Text = "现在是" + time + "，第" + week + "周\n" + "您所在的教室为" + className;
+            label_message.Text = "现在是" + time + "，第" + week + "周\n" + "您所在的教室为" + className;
 
             //查库，显示课名和教师名
 

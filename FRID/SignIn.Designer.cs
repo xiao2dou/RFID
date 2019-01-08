@@ -104,6 +104,8 @@
             this.Controls.Add(this.textBox_userName);
             this.Name = "Form_SignIn";
             this.Text = "考勤管理系统-欢迎使用";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_SignIn_FormClosing);
+            this.Load += new System.EventHandler(this.Form_SignIn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

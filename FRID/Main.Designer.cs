@@ -36,7 +36,7 @@
             this.main_button_confirm = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label_time_message = new System.Windows.Forms.Label();
+            this.label_message = new System.Windows.Forms.Label();
             this.textBox_stu_number = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -91,25 +91,19 @@
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.class_button_saveEdit = new System.Windows.Forms.Button();
+            this.class_button_edit = new System.Windows.Forms.Button();
+            this.class_textBox_classTime = new System.Windows.Forms.TextBox();
+            this.class_textBox_className = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label_className = new System.Windows.Forms.Label();
             this.class_button_search = new System.Windows.Forms.Button();
             this.class_textBox_classNumber = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.class_button_addClass = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label_className = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.class_textBox_className = new System.Windows.Forms.TextBox();
-            this.class_textBox_classTime = new System.Windows.Forms.TextBox();
-            this.class_button_edit = new System.Windows.Forms.Button();
-            this.class_button_saveEdit = new System.Windows.Forms.Button();
-            this.xk_textBox_classTime = new System.Windows.Forms.TextBox();
-            this.xk_textBox_className = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.xk_button_classSearch = new System.Windows.Forms.Button();
-            this.xk_textBox_classNumber = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.xk_comboBox = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.xk_button_stuSearch = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
@@ -118,8 +112,14 @@
             this.label21 = new System.Windows.Forms.Label();
             this.xk_textBox_stuClass = new System.Windows.Forms.TextBox();
             this.xk_textBox_stuName = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.xk_comboBox = new System.Windows.Forms.ComboBox();
+            this.xk_textBox_classTime = new System.Windows.Forms.TextBox();
+            this.xk_textBox_className = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.xk_button_classSearch = new System.Windows.Forms.Button();
+            this.xk_textBox_classNumber = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -154,7 +154,7 @@
             this.tabPage1.Controls.Add(this.main_button_confirm);
             this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.label_time_message);
+            this.tabPage1.Controls.Add(this.label_message);
             this.tabPage1.Controls.Add(this.textBox_stu_number);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.listView1);
@@ -200,14 +200,14 @@
             this.label9.TabIndex = 10;
             this.label9.Text = "实到人数";
             // 
-            // label_time_message
+            // label_message
             // 
-            this.label_time_message.AutoSize = true;
-            this.label_time_message.Location = new System.Drawing.Point(19, 3);
-            this.label_time_message.Name = "label_time_message";
-            this.label_time_message.Size = new System.Drawing.Size(113, 12);
-            this.label_time_message.TabIndex = 9;
-            this.label_time_message.Text = "label_time_message";
+            this.label_message.AutoSize = true;
+            this.label_message.Location = new System.Drawing.Point(19, 3);
+            this.label_message.Name = "label_message";
+            this.label_message.Size = new System.Drawing.Size(113, 12);
+            this.label_message.TabIndex = 9;
+            this.label_message.Text = "label_time_message";
             // 
             // textBox_stu_number
             // 
@@ -695,6 +695,62 @@
             this.tabPage9.Text = "课程管理";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
+            // class_button_saveEdit
+            // 
+            this.class_button_saveEdit.Location = new System.Drawing.Point(147, 171);
+            this.class_button_saveEdit.Name = "class_button_saveEdit";
+            this.class_button_saveEdit.Size = new System.Drawing.Size(75, 23);
+            this.class_button_saveEdit.TabIndex = 11;
+            this.class_button_saveEdit.Text = "保存";
+            this.class_button_saveEdit.UseVisualStyleBackColor = true;
+            this.class_button_saveEdit.Visible = false;
+            this.class_button_saveEdit.Click += new System.EventHandler(this.class_button_saveEdit_Click);
+            // 
+            // class_button_edit
+            // 
+            this.class_button_edit.Location = new System.Drawing.Point(35, 171);
+            this.class_button_edit.Name = "class_button_edit";
+            this.class_button_edit.Size = new System.Drawing.Size(75, 23);
+            this.class_button_edit.TabIndex = 10;
+            this.class_button_edit.Text = "编辑";
+            this.class_button_edit.UseVisualStyleBackColor = true;
+            this.class_button_edit.Visible = false;
+            this.class_button_edit.Click += new System.EventHandler(this.class_button_edit_Click);
+            // 
+            // class_textBox_classTime
+            // 
+            this.class_textBox_classTime.Location = new System.Drawing.Point(98, 86);
+            this.class_textBox_classTime.Name = "class_textBox_classTime";
+            this.class_textBox_classTime.ReadOnly = true;
+            this.class_textBox_classTime.Size = new System.Drawing.Size(100, 21);
+            this.class_textBox_classTime.TabIndex = 8;
+            // 
+            // class_textBox_className
+            // 
+            this.class_textBox_className.Location = new System.Drawing.Point(98, 52);
+            this.class_textBox_className.Name = "class_textBox_className";
+            this.class_textBox_className.ReadOnly = true;
+            this.class_textBox_className.Size = new System.Drawing.Size(100, 21);
+            this.class_textBox_className.TabIndex = 7;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(23, 96);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(29, 12);
+            this.label16.TabIndex = 5;
+            this.label16.Text = "课时";
+            // 
+            // label_className
+            // 
+            this.label_className.AutoSize = true;
+            this.label_className.Location = new System.Drawing.Point(21, 62);
+            this.label_className.Name = "label_className";
+            this.label_className.Size = new System.Drawing.Size(53, 12);
+            this.label_className.TabIndex = 4;
+            this.label_className.Text = "课程名称";
+            // 
             // class_button_search
             // 
             this.class_button_search.Location = new System.Drawing.Point(204, 19);
@@ -758,125 +814,22 @@
             this.tabPage4.Text = "选课管理";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // timer1
+            // xk_comboBox
             // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.xk_comboBox.FormattingEnabled = true;
+            this.xk_comboBox.Location = new System.Drawing.Point(157, 177);
+            this.xk_comboBox.Name = "xk_comboBox";
+            this.xk_comboBox.Size = new System.Drawing.Size(121, 20);
+            this.xk_comboBox.TabIndex = 37;
             // 
-            // label_className
+            // label22
             // 
-            this.label_className.AutoSize = true;
-            this.label_className.Location = new System.Drawing.Point(21, 62);
-            this.label_className.Name = "label_className";
-            this.label_className.Size = new System.Drawing.Size(53, 12);
-            this.label_className.TabIndex = 4;
-            this.label_className.Text = "课程名称";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(23, 96);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(29, 12);
-            this.label16.TabIndex = 5;
-            this.label16.Text = "课时";
-            // 
-            // class_textBox_className
-            // 
-            this.class_textBox_className.Location = new System.Drawing.Point(98, 52);
-            this.class_textBox_className.Name = "class_textBox_className";
-            this.class_textBox_className.ReadOnly = true;
-            this.class_textBox_className.Size = new System.Drawing.Size(100, 21);
-            this.class_textBox_className.TabIndex = 7;
-            // 
-            // class_textBox_classTime
-            // 
-            this.class_textBox_classTime.Location = new System.Drawing.Point(98, 86);
-            this.class_textBox_classTime.Name = "class_textBox_classTime";
-            this.class_textBox_classTime.ReadOnly = true;
-            this.class_textBox_classTime.Size = new System.Drawing.Size(100, 21);
-            this.class_textBox_classTime.TabIndex = 8;
-            // 
-            // class_button_edit
-            // 
-            this.class_button_edit.Location = new System.Drawing.Point(35, 171);
-            this.class_button_edit.Name = "class_button_edit";
-            this.class_button_edit.Size = new System.Drawing.Size(75, 23);
-            this.class_button_edit.TabIndex = 10;
-            this.class_button_edit.Text = "编辑";
-            this.class_button_edit.UseVisualStyleBackColor = true;
-            this.class_button_edit.Visible = false;
-            this.class_button_edit.Click += new System.EventHandler(this.class_button_edit_Click);
-            // 
-            // class_button_saveEdit
-            // 
-            this.class_button_saveEdit.Location = new System.Drawing.Point(147, 171);
-            this.class_button_saveEdit.Name = "class_button_saveEdit";
-            this.class_button_saveEdit.Size = new System.Drawing.Size(75, 23);
-            this.class_button_saveEdit.TabIndex = 11;
-            this.class_button_saveEdit.Text = "保存";
-            this.class_button_saveEdit.UseVisualStyleBackColor = true;
-            this.class_button_saveEdit.Visible = false;
-            this.class_button_saveEdit.Click += new System.EventHandler(this.class_button_saveEdit_Click);
-            // 
-            // xk_textBox_classTime
-            // 
-            this.xk_textBox_classTime.Location = new System.Drawing.Point(157, 135);
-            this.xk_textBox_classTime.Name = "xk_textBox_classTime";
-            this.xk_textBox_classTime.ReadOnly = true;
-            this.xk_textBox_classTime.Size = new System.Drawing.Size(100, 21);
-            this.xk_textBox_classTime.TabIndex = 15;
-            // 
-            // xk_textBox_className
-            // 
-            this.xk_textBox_className.Location = new System.Drawing.Point(157, 101);
-            this.xk_textBox_className.Name = "xk_textBox_className";
-            this.xk_textBox_className.ReadOnly = true;
-            this.xk_textBox_className.Size = new System.Drawing.Size(100, 21);
-            this.xk_textBox_className.TabIndex = 14;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(82, 145);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(29, 12);
-            this.label15.TabIndex = 13;
-            this.label15.Text = "课时";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(80, 111);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(53, 12);
-            this.label17.TabIndex = 12;
-            this.label17.Text = "课程名称";
-            // 
-            // xk_button_classSearch
-            // 
-            this.xk_button_classSearch.Location = new System.Drawing.Point(263, 68);
-            this.xk_button_classSearch.Name = "xk_button_classSearch";
-            this.xk_button_classSearch.Size = new System.Drawing.Size(47, 23);
-            this.xk_button_classSearch.TabIndex = 11;
-            this.xk_button_classSearch.Text = "查询";
-            this.xk_button_classSearch.UseVisualStyleBackColor = true;
-            // 
-            // xk_textBox_classNumber
-            // 
-            this.xk_textBox_classNumber.Location = new System.Drawing.Point(157, 68);
-            this.xk_textBox_classNumber.Name = "xk_textBox_classNumber";
-            this.xk_textBox_classNumber.Size = new System.Drawing.Size(100, 21);
-            this.xk_textBox_classNumber.TabIndex = 10;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(78, 77);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(41, 12);
-            this.label18.TabIndex = 9;
-            this.label18.Text = "课程号";
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(78, 180);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(41, 12);
+            this.label22.TabIndex = 36;
+            this.label22.Text = "教学班";
             // 
             // xk_button_stuSearch
             // 
@@ -946,22 +899,69 @@
             this.xk_textBox_stuName.Size = new System.Drawing.Size(100, 21);
             this.xk_textBox_stuName.TabIndex = 31;
             // 
-            // label22
+            // xk_textBox_classTime
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(78, 180);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(41, 12);
-            this.label22.TabIndex = 36;
-            this.label22.Text = "教学班";
+            this.xk_textBox_classTime.Location = new System.Drawing.Point(157, 135);
+            this.xk_textBox_classTime.Name = "xk_textBox_classTime";
+            this.xk_textBox_classTime.ReadOnly = true;
+            this.xk_textBox_classTime.Size = new System.Drawing.Size(100, 21);
+            this.xk_textBox_classTime.TabIndex = 15;
             // 
-            // xk_comboBox
+            // xk_textBox_className
             // 
-            this.xk_comboBox.FormattingEnabled = true;
-            this.xk_comboBox.Location = new System.Drawing.Point(157, 177);
-            this.xk_comboBox.Name = "xk_comboBox";
-            this.xk_comboBox.Size = new System.Drawing.Size(121, 20);
-            this.xk_comboBox.TabIndex = 37;
+            this.xk_textBox_className.Location = new System.Drawing.Point(157, 101);
+            this.xk_textBox_className.Name = "xk_textBox_className";
+            this.xk_textBox_className.ReadOnly = true;
+            this.xk_textBox_className.Size = new System.Drawing.Size(100, 21);
+            this.xk_textBox_className.TabIndex = 14;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(82, 145);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(29, 12);
+            this.label15.TabIndex = 13;
+            this.label15.Text = "课时";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(80, 111);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(53, 12);
+            this.label17.TabIndex = 12;
+            this.label17.Text = "课程名称";
+            // 
+            // xk_button_classSearch
+            // 
+            this.xk_button_classSearch.Location = new System.Drawing.Point(263, 68);
+            this.xk_button_classSearch.Name = "xk_button_classSearch";
+            this.xk_button_classSearch.Size = new System.Drawing.Size(47, 23);
+            this.xk_button_classSearch.TabIndex = 11;
+            this.xk_button_classSearch.Text = "查询";
+            this.xk_button_classSearch.UseVisualStyleBackColor = true;
+            // 
+            // xk_textBox_classNumber
+            // 
+            this.xk_textBox_classNumber.Location = new System.Drawing.Point(157, 68);
+            this.xk_textBox_classNumber.Name = "xk_textBox_classNumber";
+            this.xk_textBox_classNumber.Size = new System.Drawing.Size(100, 21);
+            this.xk_textBox_classNumber.TabIndex = 10;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(78, 77);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(41, 12);
+            this.label18.TabIndex = 9;
+            this.label18.Text = "课程号";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form_Main
             // 
@@ -1010,7 +1010,7 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.Label label_time_message;
+        private System.Windows.Forms.Label label_message;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
