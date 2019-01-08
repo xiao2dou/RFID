@@ -111,6 +111,8 @@
             this.Controls.Add(this.textBox_userName);
             this.Name = "Form_SignUp";
             this.Text = "考勤管理系统-用户注册";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_SignUp_FormClosing);
+            this.Load += new System.EventHandler(this.Form_SignUp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
