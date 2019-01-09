@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.main_button_confirm = new System.Windows.Forms.Button();
@@ -52,6 +52,7 @@
             this.main_button_overClass = new System.Windows.Forms.Button();
             this.main_button_beginClass = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button_stu_refresh_List = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.listView_allStudent = new System.Windows.Forms.ListView();
@@ -84,6 +85,7 @@
             this.leave_textBox_stu_class = new System.Windows.Forms.TextBox();
             this.leave_textBox_stu_name = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button_class_refresh_List = new System.Windows.Forms.Button();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.listView_allCourse = new System.Windows.Forms.ListView();
@@ -105,7 +107,7 @@
             this.xk_comboBox = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.xk_button_stuSearch = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.xk_button_confirm = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.xk_textBox_stuNumber = new System.Windows.Forms.TextBox();
@@ -120,8 +122,6 @@
             this.xk_textBox_classNumber = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button_stu_refresh_List = new System.Windows.Forms.Button();
-            this.button_class_refresh_List = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -240,7 +240,7 @@
             this.columnHeader4,
             this.columnHeader5});
             this.listView_main_stu.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem1});
             this.listView_main_stu.Location = new System.Drawing.Point(3, 111);
             this.listView_main_stu.Name = "listView_main_stu";
             this.listView_main_stu.Size = new System.Drawing.Size(699, 315);
@@ -337,6 +337,16 @@
             this.tabPage2.Text = "学生管理";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button_stu_refresh_List
+            // 
+            this.button_stu_refresh_List.Location = new System.Drawing.Point(621, 6);
+            this.button_stu_refresh_List.Name = "button_stu_refresh_List";
+            this.button_stu_refresh_List.Size = new System.Drawing.Size(75, 23);
+            this.button_stu_refresh_List.TabIndex = 10;
+            this.button_stu_refresh_List.Text = "刷新";
+            this.button_stu_refresh_List.UseVisualStyleBackColor = true;
+            this.button_stu_refresh_List.Click += new System.EventHandler(this.button_refresh_Click);
+            // 
             // tabControl2
             // 
             this.tabControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -376,7 +386,7 @@
             this.columnHeader12,
             this.columnHeader13});
             this.listView_allStudent.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
+            listViewItem2});
             this.listView_allStudent.Location = new System.Drawing.Point(-1, -6);
             this.listView_allStudent.Name = "listView_allStudent";
             this.listView_allStudent.Size = new System.Drawing.Size(699, 391);
@@ -627,6 +637,16 @@
             this.tabPage3.Text = "课程管理";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // button_class_refresh_List
+            // 
+            this.button_class_refresh_List.Location = new System.Drawing.Point(615, 7);
+            this.button_class_refresh_List.Name = "button_class_refresh_List";
+            this.button_class_refresh_List.Size = new System.Drawing.Size(75, 23);
+            this.button_class_refresh_List.TabIndex = 1;
+            this.button_class_refresh_List.Text = "刷新";
+            this.button_class_refresh_List.UseVisualStyleBackColor = true;
+            this.button_class_refresh_List.Click += new System.EventHandler(this.button_class_refresh_List_Click);
+            // 
             // tabControl3
             // 
             this.tabControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -796,7 +816,7 @@
             this.tabPage4.Controls.Add(this.xk_comboBox);
             this.tabPage4.Controls.Add(this.label22);
             this.tabPage4.Controls.Add(this.xk_button_stuSearch);
-            this.tabPage4.Controls.Add(this.button3);
+            this.tabPage4.Controls.Add(this.xk_button_confirm);
             this.tabPage4.Controls.Add(this.label19);
             this.tabPage4.Controls.Add(this.label20);
             this.tabPage4.Controls.Add(this.xk_textBox_stuNumber);
@@ -843,15 +863,17 @@
             this.xk_button_stuSearch.TabIndex = 35;
             this.xk_button_stuSearch.Text = "查询";
             this.xk_button_stuSearch.UseVisualStyleBackColor = true;
+            this.xk_button_stuSearch.Click += new System.EventHandler(this.xk_button_stuSearch_Click);
             // 
-            // button3
+            // xk_button_confirm
             // 
-            this.button3.Location = new System.Drawing.Point(289, 282);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 34;
-            this.button3.Text = "确认选课";
-            this.button3.UseVisualStyleBackColor = true;
+            this.xk_button_confirm.Location = new System.Drawing.Point(289, 282);
+            this.xk_button_confirm.Name = "xk_button_confirm";
+            this.xk_button_confirm.Size = new System.Drawing.Size(75, 23);
+            this.xk_button_confirm.TabIndex = 34;
+            this.xk_button_confirm.Text = "确认选课";
+            this.xk_button_confirm.UseVisualStyleBackColor = true;
+            this.xk_button_confirm.Click += new System.EventHandler(this.xk_button_confirm_Click);
             // 
             // label19
             // 
@@ -945,6 +967,7 @@
             this.xk_button_classSearch.TabIndex = 11;
             this.xk_button_classSearch.Text = "查询";
             this.xk_button_classSearch.UseVisualStyleBackColor = true;
+            this.xk_button_classSearch.Click += new System.EventHandler(this.xk_button_classSearch_Click);
             // 
             // xk_textBox_classNumber
             // 
@@ -966,26 +989,6 @@
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // button_stu_refresh_List
-            // 
-            this.button_stu_refresh_List.Location = new System.Drawing.Point(621, 6);
-            this.button_stu_refresh_List.Name = "button_stu_refresh_List";
-            this.button_stu_refresh_List.Size = new System.Drawing.Size(75, 23);
-            this.button_stu_refresh_List.TabIndex = 10;
-            this.button_stu_refresh_List.Text = "刷新";
-            this.button_stu_refresh_List.UseVisualStyleBackColor = true;
-            this.button_stu_refresh_List.Click += new System.EventHandler(this.button_refresh_Click);
-            // 
-            // button_class_refresh_List
-            // 
-            this.button_class_refresh_List.Location = new System.Drawing.Point(615, 7);
-            this.button_class_refresh_List.Name = "button_class_refresh_List";
-            this.button_class_refresh_List.Size = new System.Drawing.Size(75, 23);
-            this.button_class_refresh_List.TabIndex = 1;
-            this.button_class_refresh_List.Text = "刷新";
-            this.button_class_refresh_List.UseVisualStyleBackColor = true;
-            this.button_class_refresh_List.Click += new System.EventHandler(this.button_class_refresh_List_Click);
             // 
             // Form_Main
             // 
@@ -1092,7 +1095,7 @@
         private System.Windows.Forms.Button class_button_saveEdit;
         private System.Windows.Forms.Button class_button_edit;
         private System.Windows.Forms.Button xk_button_stuSearch;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button xk_button_confirm;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox xk_textBox_stuNumber;

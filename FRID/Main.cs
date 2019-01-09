@@ -1,4 +1,4 @@
-﻿#define Debug
+﻿//#define Debug
 
 using System;
 using System.Collections.Generic;
@@ -306,7 +306,6 @@ namespace FRID
         }
         #endregion
 
-
         #region 学生管理
 
         //显示学生列表
@@ -394,10 +393,6 @@ namespace FRID
             }
 
             //写数据库
-            /*INSERT 
- INTO student (stnum,stname,class,phone,cardid)
- VALUES ('153073','丁云英','计151','13932850311','4D39B29F5908040001350207719B351D');
-*/
 #if Debug
             str = "4D39B29F5908040001350207719B350F";
 #endif
@@ -464,7 +459,7 @@ namespace FRID
         //显示课程列表
         private void read_classList()
         {
-            listView_allStudent.Items.Clear();
+            listView_allCourse.Items.Clear();
             sql = "select cnum,cname,clength from course";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataReader sread_stu = cmd.ExecuteReader();
@@ -576,6 +571,74 @@ namespace FRID
         }
 
 
+        #endregion
+
+        #region 选课管理
+
+        private void xk_button_classSearch_Click(object sender, EventArgs e)
+        {
+            string classNumber = xk_textBox_classNumber.Text;
+
+            //查课程数据库
+            sql = "select cname,clength from course where cnum='" + classNumber + "'";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader sread = cmd.ExecuteReader();
+            try
+            {
+                if (sread.Read())
+                {
+                    xk_textBox_className.Text = sread["cname"].ToString().TrimEnd();
+                    xk_textBox_classTime.Text = sread["clength"].ToString().TrimEnd();
+                }
+                else
+                {
+                    MessageBox.Show("课程不存在");
+                }
+            }
+            catch (Exception msg)
+            {
+                throw new Exception(msg.ToString());
+            }
+            finally
+            {
+                sread.Close();
+            }
+        }
+
+        private void xk_button_stuSearch_Click(object sender, EventArgs e)
+        {
+            string stu_number = xk_textBox_stuNumber.Text;
+
+            //查学生姓名、学号
+            sql = "select stname,class from student where stnum='" + stu_number + "'";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader sread = cmd.ExecuteReader();
+            try
+            {
+                if (sread.Read())
+                {
+                    xk_textBox_stuName.Text = sread["stname"].ToString().TrimEnd();
+                    xk_textBox_stuClass.Text = sread["class"].ToString().TrimEnd();
+                }
+                else
+                {
+                    MessageBox.Show("用户不存在");
+                }
+            }
+            catch (Exception msg)
+            {
+                throw new Exception(msg.ToString());
+            }
+            finally
+            {
+                sread.Close();
+            }
+        }
+
+        private void xk_button_confirm_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("假装选课成功（留一个bug给测试）");
+        }
         #endregion
 
     }
