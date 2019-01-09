@@ -536,7 +536,7 @@ namespace FRID
             string courseName = class_textBox_className.Text;
             string courseTime = class_textBox_classTime.Text;
             //更新数据库
-            sql = "update course set cname='" + courseName + "'and clength='" + courseTime + "' where cnum='" + class_textBox_classNumber.Text + "'";
+            sql = "update course set cname='" + courseName + "' and clength='" + courseTime + "' where cnum='" + class_textBox_classNumber.Text + "';";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataReader sread_stu = cmd.ExecuteReader();
             sread_stu.Close();
@@ -547,11 +547,17 @@ namespace FRID
             //写数据库
             class_button_search.Visible = false;
             class_button_edit.Visible = false;
-            class_button_saveEdit.Visible = true;
+            class_button_saveEdit.Visible = false;
             class_textBox_classNumber.ReadOnly = false;
             class_textBox_className.ReadOnly = false;
             class_textBox_classTime.ReadOnly = false;
 
+            class_button_saveAdd.Visible = true;
+          
+        }
+
+        private void class_button_saveAdd_Click(object sender, EventArgs e)
+        {
             string classNumber = class_textBox_classNumber.Text;
             string courseName = class_textBox_className.Text;
             string courseTime = class_textBox_classTime.Text;
@@ -568,8 +574,8 @@ namespace FRID
             {
                 throw new Exception(msg.ToString());
             }
+            MessageBox.Show("添加课程成功");
         }
-
 
         #endregion
 

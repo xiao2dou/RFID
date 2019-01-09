@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.main_button_confirm = new System.Windows.Forms.Button();
@@ -122,6 +122,7 @@
             this.xk_textBox_classNumber = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.class_button_saveAdd = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -240,7 +241,7 @@
             this.columnHeader4,
             this.columnHeader5});
             this.listView_main_stu.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem5});
             this.listView_main_stu.Location = new System.Drawing.Point(3, 111);
             this.listView_main_stu.Name = "listView_main_stu";
             this.listView_main_stu.Size = new System.Drawing.Size(699, 315);
@@ -386,7 +387,7 @@
             this.columnHeader12,
             this.columnHeader13});
             this.listView_allStudent.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem6});
             this.listView_allStudent.Location = new System.Drawing.Point(-1, -6);
             this.listView_allStudent.Name = "listView_allStudent";
             this.listView_allStudent.Size = new System.Drawing.Size(699, 391);
@@ -701,6 +702,7 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.class_button_saveAdd);
             this.tabPage9.Controls.Add(this.class_button_saveEdit);
             this.tabPage9.Controls.Add(this.class_button_edit);
             this.tabPage9.Controls.Add(this.class_textBox_classTime);
@@ -990,6 +992,17 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // class_button_saveAdd
+            // 
+            this.class_button_saveAdd.Location = new System.Drawing.Point(337, 62);
+            this.class_button_saveAdd.Name = "class_button_saveAdd";
+            this.class_button_saveAdd.Size = new System.Drawing.Size(75, 23);
+            this.class_button_saveAdd.TabIndex = 12;
+            this.class_button_saveAdd.Text = "确认添加";
+            this.class_button_saveAdd.UseVisualStyleBackColor = true;
+            this.class_button_saveAdd.Visible = false;
+            this.class_button_saveAdd.Click += new System.EventHandler(this.class_button_saveAdd_Click);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1113,5 +1126,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button button_stu_refresh_List;
         private System.Windows.Forms.Button button_class_refresh_List;
+        private System.Windows.Forms.Button class_button_saveAdd;
     }
 }
