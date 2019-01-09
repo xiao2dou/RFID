@@ -61,6 +61,7 @@ namespace FRID
 
         int counter_needStudent = 0;
         int counter_cameStudent = 0;
+        int counter_absense = 0;
 
         public Form_Main()
         {
@@ -121,6 +122,8 @@ namespace FRID
 
             textBox_courseName.Text = courseName;
             textBox_teacherName.Text = teacherName;
+
+            main_button_overClass.Visible = false;
 
         }
 
@@ -191,7 +194,8 @@ namespace FRID
             classState = 1;
             //开始接受刷卡——自动读卡
             timer1.Enabled = true;
-
+            main_button_beginClass.Visible = false;
+            main_button_overClass.Visible = true;
         }
 
         //开始下课
@@ -248,7 +252,7 @@ namespace FRID
                     {
                         while (sread_stu.Read())
                         {
-                            label_message.Text = sread_stu["stname"].ToString().TrimEnd()+"("+ sread_stu["stnum"].ToString().TrimEnd() + ")刷卡成功";                            
+                            label_message.Text = sread_stu["stname"].ToString().TrimEnd()+"("+ sread_stu["stnum"].ToString().TrimEnd() + ")上课打卡成功";                            
                         }
                         sread_stu.Close();
                     }
@@ -263,7 +267,32 @@ namespace FRID
                 }
                 else if (classState == 2)//下课 
                 {
+                    time = DateTime.Now.ToLongTimeString().ToString();
+                    sql = "update student set cardtime='" + time + "' where cardid='" + str + "'";
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    SqlDataReader sread_stu = cmd.ExecuteReader();
+                    sread_stu.Close();
+                    read_studentList();
 
+                    sql = "select stname,stnum,cardtime from student where cardid='" + str + "'";
+                    cmd = new SqlCommand(sql, con);
+                    sread_stu = cmd.ExecuteReader();
+                    try
+                    {
+                        while (sread_stu.Read())
+                        {
+                            label_message.Text = sread_stu["stname"].ToString().TrimEnd() + "(" + sread_stu["stnum"].ToString().TrimEnd() + ")下课打卡成功";
+                        }
+                        sread_stu.Close();
+                    }
+                    catch (Exception msg)
+                    {
+                        throw new Exception(msg.ToString());
+                    }
+                    finally
+                    {
+                        sread_stu.Close();
+                    }
                 }
                 else
                 {
