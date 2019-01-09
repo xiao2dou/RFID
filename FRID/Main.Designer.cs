@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.main_button_confirm = new System.Windows.Forms.Button();
@@ -54,15 +54,15 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.listView_allStudent = new System.Windows.Forms.ListView();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.button_OpenCard = new System.Windows.Forms.Button();
@@ -120,6 +120,7 @@
             this.xk_textBox_classNumber = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button_stu_refresh_List = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -238,7 +239,7 @@
             this.columnHeader4,
             this.columnHeader5});
             this.listView_main_stu.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem3});
             this.listView_main_stu.Location = new System.Drawing.Point(3, 111);
             this.listView_main_stu.Name = "listView_main_stu";
             this.listView_main_stu.Size = new System.Drawing.Size(699, 315);
@@ -325,6 +326,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button_stu_refresh_List);
             this.tabPage2.Controls.Add(this.tabControl2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -342,44 +344,44 @@
             this.tabControl2.Controls.Add(this.tabPage7);
             this.tabControl2.Controls.Add(this.tabPage5);
             this.tabControl2.Controls.Add(this.tabPage6);
-            this.tabControl2.Location = new System.Drawing.Point(0, 3);
+            this.tabControl2.Location = new System.Drawing.Point(0, 19);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(703, 430);
+            this.tabControl2.Size = new System.Drawing.Size(703, 414);
             this.tabControl2.TabIndex = 9;
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.listView2);
+            this.tabPage7.Controls.Add(this.listView_allStudent);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(695, 404);
+            this.tabPage7.Size = new System.Drawing.Size(695, 388);
             this.tabPage7.TabIndex = 2;
             this.tabPage7.Text = "学生列表";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // listView2
+            // listView_allStudent
             // 
-            this.listView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listView_allStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listView_allStudent.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8,
             this.columnHeader9,
+            this.columnHeader11,
             this.columnHeader10,
             this.columnHeader12,
-            this.columnHeader13,
-            this.columnHeader11});
-            this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
-            this.listView2.Location = new System.Drawing.Point(-1, -3);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(699, 404);
-            this.listView2.TabIndex = 7;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
+            this.columnHeader13});
+            this.listView_allStudent.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem4});
+            this.listView_allStudent.Location = new System.Drawing.Point(-1, -6);
+            this.listView_allStudent.Name = "listView_allStudent";
+            this.listView_allStudent.Size = new System.Drawing.Size(699, 391);
+            this.listView_allStudent.TabIndex = 7;
+            this.listView_allStudent.UseCompatibleStateImageBehavior = false;
+            this.listView_allStudent.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader6
             // 
@@ -399,6 +401,11 @@
             this.columnHeader9.Text = "联系电话";
             this.columnHeader9.Width = 97;
             // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "卡号";
+            this.columnHeader11.Width = 228;
+            // 
             // columnHeader10
             // 
             this.columnHeader10.Text = "出勤率";
@@ -411,11 +418,6 @@
             // columnHeader13
             // 
             this.columnHeader13.Text = "缺勤次数";
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.Text = "备注";
-            this.columnHeader11.Width = 138;
             // 
             // tabPage5
             // 
@@ -440,7 +442,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(219, 44);
+            this.label3.Location = new System.Drawing.Point(249, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(186, 21);
             this.label3.TabIndex = 9;
@@ -459,7 +461,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(251, 96);
+            this.label4.Location = new System.Drawing.Point(251, 94);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 10;
@@ -508,7 +510,7 @@
             // 
             // openCard_textBox_name
             // 
-            this.openCard_textBox_name.Location = new System.Drawing.Point(314, 96);
+            this.openCard_textBox_name.Location = new System.Drawing.Point(314, 94);
             this.openCard_textBox_name.Name = "openCard_textBox_name";
             this.openCard_textBox_name.Size = new System.Drawing.Size(100, 21);
             this.openCard_textBox_name.TabIndex = 13;
@@ -963,6 +965,16 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // button_stu_refresh_List
+            // 
+            this.button_stu_refresh_List.Location = new System.Drawing.Point(621, 6);
+            this.button_stu_refresh_List.Name = "button_stu_refresh_List";
+            this.button_stu_refresh_List.Size = new System.Drawing.Size(75, 23);
+            this.button_stu_refresh_List.TabIndex = 10;
+            this.button_stu_refresh_List.Text = "刷新";
+            this.button_stu_refresh_List.UseVisualStyleBackColor = true;
+            this.button_stu_refresh_List.Click += new System.EventHandler(this.button_refresh_Click);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1030,7 +1042,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox openCard_textBox_class;
         private System.Windows.Forms.TextBox openCard_textBox_name;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView listView_allStudent;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
@@ -1084,5 +1096,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox xk_comboBox;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Button button_stu_refresh_List;
     }
 }

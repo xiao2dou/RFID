@@ -1,4 +1,6 @@
-﻿using System;
+﻿#define Debug
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +28,10 @@ namespace FRID
 
         private void Form_SignIn_Load(object sender, EventArgs e)
         {
+#if Debug
+            textBox_userName.Text = "111";
+            textBox_password.Text = "123123";
+#endif
             con = new SqlConnection(consqlserver);
             con.Open();
         }

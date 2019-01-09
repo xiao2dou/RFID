@@ -61,7 +61,6 @@ namespace FRID
 
         int counter_needStudent = 0;
         int counter_cameStudent = 0;
-        int counter_absense = 0;
 
         public Form_Main()
         {
@@ -71,6 +70,7 @@ namespace FRID
         //加载程序主页
         private void Form_Main_Load(object sender, EventArgs e)
         {
+
             //打开USB串口
             try
             {
@@ -89,6 +89,9 @@ namespace FRID
             string classroomName ="";
             string teacherName = "";
             string courseName = "";
+
+            //显示学生列表
+            read_studentList();
 
             //查库，显示课名和教师名
             sql = "select jroom,jname,cname from course,JXB where course.cnum=JXB.cnum and jnum='" + jxbNumber + "'";
@@ -127,7 +130,7 @@ namespace FRID
 
         }
 
-        #region 上课主页
+#region 上课主页
         //确认课程信息
         private void main_button_confirm_Click(object sender, EventArgs e)
         {
@@ -142,10 +145,10 @@ namespace FRID
             sread_stu.Close();
 
             //显示学生列表
-            read_studentList();
+            read_classStudentList();
         }
 
-        private void read_studentList()
+        private void read_classStudentList()
         {
             counter_needStudent = 0;
             counter_cameStudent = 0;
@@ -243,7 +246,7 @@ namespace FRID
                     SqlCommand cmd = new SqlCommand(sql, con);
                     SqlDataReader sread_stu = cmd.ExecuteReader();
                     sread_stu.Close();
-                    read_studentList();
+                    read_classStudentList();
 
                     sql = "select stname,stnum from student where cardid='" + str + "'";
                     cmd = new SqlCommand(sql, con);
@@ -272,7 +275,7 @@ namespace FRID
                     SqlCommand cmd = new SqlCommand(sql, con);
                     SqlDataReader sread_stu = cmd.ExecuteReader();
                     sread_stu.Close();
-                    read_studentList();
+                    read_classStudentList();
 
                     sql = "select stname,stnum,cardtime from student where cardid='" + str + "'";
                     cmd = new SqlCommand(sql, con);
@@ -283,7 +286,6 @@ namespace FRID
                         {
                             label_message.Text = sread_stu["stname"].ToString().TrimEnd() + "(" + sread_stu["stnum"].ToString().TrimEnd() + ")下课打卡成功";
                         }
-                        sread_stu.Close();
                     }
                     catch (Exception msg)
                     {
@@ -304,6 +306,42 @@ namespace FRID
 
 
         #region 学生管理
+
+        //显示学生列表
+        private void read_studentList()
+        {
+            listView_allStudent.Items.Clear();
+            sql = "select stname,student.stnum,class,phone,cardid from student";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader sread_stu = cmd.ExecuteReader();
+            try
+            {
+                while (sread_stu.Read())
+                {
+                    ListViewItem it = new ListViewItem();
+                    it.Text = sread_stu["stname"].ToString().TrimEnd();
+                    it.SubItems.Add(sread_stu["stnum"].ToString().TrimEnd());
+                    it.SubItems.Add(sread_stu["class"].ToString().TrimEnd());
+                    it.SubItems.Add(sread_stu["phone"].ToString().TrimEnd());
+                    it.SubItems.Add(sread_stu["cardid"].ToString().TrimEnd());
+                    listView_allStudent.Items.Add(it);
+                }
+            }
+            catch (Exception msg)
+            {
+                throw new Exception(msg.ToString());
+            }
+            finally
+            {
+                sread_stu.Close();
+            }
+        }
+
+        private void button_refresh_Click(object sender, EventArgs e)
+        {
+            read_studentList();
+        }
+
         //开卡程序
         private void button_OpenCard_Click(object sender, EventArgs e)
         {
@@ -353,35 +391,67 @@ namespace FRID
                 str += bytesData[i].ToString("X2");
             }
 
-            //MessageBox.Show(Convert.ToString(str));
-
-            //textBox3.Text = str;
-
             //写数据库
+            /*INSERT 
+ INTO student (stnum,stname,class,phone,cardid)
+ VALUES ('153073','丁云英','计151','13932850311','4D39B29F5908040001350207719B351D');
+*/
+#if Debug
+            str = "4D39B29F5908040001350207719B350F";
+#endif
+
+            sql = "insert into student(stnum,stname,class,cardid) values('"+stu_number+"','"+stu_name + "','" +stu_class + "','" +str +"');";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader sread_stu = cmd.ExecuteReader();
+            sread_stu.Close();
 
             MessageBox.Show(stu_name+"开卡成功！\n卡号为："+str);
         }
-        #region 请假登记
+
+#region 请假登记
         private void leave_button_search_Click(object sender, EventArgs e)
         {
             string stu_number = leave_textBox_stu_number.Text;
 
             //查学生姓名、学号
+            sql = "select stname,class from student where stnum='" + stu_number + "'";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader sread = cmd.ExecuteReader();
+            try
+            {
+                if (sread.Read())
+                {
+                    leave_textBox_stu_name.Text = sread["stname"].ToString().TrimEnd();
+                    leave_textBox_stu_class.Text = sread["class"].ToString().TrimEnd();
+                }
+                else
+                {
+                    MessageBox.Show("用户不存在");
+                }
+            }
+            catch (Exception msg)
+            {
+                throw new Exception(msg.ToString());
+            }
+            finally
+            {
+                sread.Close();
+            }
 
-            //显示
         }
 
         private void leave_button_comfirm_leave_Click(object sender, EventArgs e)
         {
             //请假
+            MessageBox.Show("假装请假成功！");
         }
 
 
-        #endregion
+#endregion
 
-        #endregion
+#endregion
 
-        #region 课程管理
+#region 课程管理
         //查询课程
         private void class_button_search_Click(object sender, EventArgs e)
         {
@@ -408,8 +478,9 @@ namespace FRID
         {
             //写数据库
         }
-        #endregion
 
+
+        #endregion
 
     }
 }
