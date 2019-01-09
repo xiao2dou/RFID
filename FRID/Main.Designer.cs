@@ -34,7 +34,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.main_button_confirm = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_stu_cameNumber = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label_message = new System.Windows.Forms.Label();
             this.textBox_stu_number = new System.Windows.Forms.TextBox();
@@ -152,7 +152,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.main_button_confirm);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.textBox_stu_cameNumber);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label_message);
             this.tabPage1.Controls.Add(this.textBox_stu_number);
@@ -183,13 +183,13 @@
             this.main_button_confirm.UseVisualStyleBackColor = true;
             this.main_button_confirm.Click += new System.EventHandler(this.main_button_confirm_Click);
             // 
-            // textBox1
+            // textBox_stu_cameNumber
             // 
-            this.textBox1.Location = new System.Drawing.Point(296, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 11;
+            this.textBox_stu_cameNumber.Location = new System.Drawing.Point(296, 80);
+            this.textBox_stu_cameNumber.Name = "textBox_stu_cameNumber";
+            this.textBox_stu_cameNumber.ReadOnly = true;
+            this.textBox_stu_cameNumber.Size = new System.Drawing.Size(100, 21);
+            this.textBox_stu_cameNumber.TabIndex = 11;
             // 
             // label9
             // 
@@ -1015,7 +1015,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_stu_cameNumber;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage5;

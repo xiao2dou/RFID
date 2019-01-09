@@ -57,6 +57,10 @@ namespace FRID
         bool confirm_message = false;
         int classState = 0;//1表示上课，2表示下课，默认上课模式
         string jxbNumber = "16032";//手动确定教学班号
+        string time = "";
+
+        int counter_needStudent = 0;
+        int counter_cameStudent = 0;
 
         public Form_Main()
         {
@@ -126,9 +130,24 @@ namespace FRID
         {
             confirm_message = true;
             MessageBox.Show("课程信息已确认无误，您现在可以开始上课！");
+            main_button_confirm.Visible = false;
+
+            //清空刷卡信息
+            sql = "update student set cardtime=''";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader sread_stu = cmd.ExecuteReader();
+            sread_stu.Close();
 
             //显示学生列表
-            sql = "select stname,student.stnum,class from student,JXB,sc where sc.jnum=JXB.jnum and sc.stnum=student.stnum and JXB.jnum='" + jxbNumber + "'";
+            read_studentList();
+        }
+
+        private void read_studentList()
+        {
+            counter_needStudent = 0;
+            counter_cameStudent = 0;
+            listView_main_stu.Items.Clear();
+            sql = "select stname,student.stnum,class,cardtime from student,JXB,sc where sc.jnum=JXB.jnum and sc.stnum=student.stnum and JXB.jnum='" + jxbNumber + "'";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataReader sread_stu = cmd.ExecuteReader();
             try
@@ -139,8 +158,17 @@ namespace FRID
                     it.Text = sread_stu["stname"].ToString().TrimEnd();
                     it.SubItems.Add(sread_stu["stnum"].ToString().TrimEnd());
                     it.SubItems.Add(sread_stu["class"].ToString().TrimEnd());
+                    it.SubItems.Add(sread_stu["cardtime"].ToString().TrimEnd());
                     listView_main_stu.Items.Add(it);
+                    counter_needStudent++;
+                    if (!sread_stu["cardtime"].ToString().TrimEnd().Equals(""))
+                    {
+                        counter_cameStudent++;
+                    }
+
                 }
+                textBox_stu_number.Text = counter_needStudent.ToString();
+                textBox_stu_cameNumber.Text = counter_cameStudent.ToString();
                 sread_stu.Close();
             }
             catch (Exception msg)
@@ -156,7 +184,7 @@ namespace FRID
         //开始上课
         private void main_button_beginClass_Click(object sender, EventArgs e)
         {
-            if (confirm_message)
+            if (!confirm_message)
             {
                 MessageBox.Show("请先确认课程信息是否正确");
             }
@@ -206,7 +234,32 @@ namespace FRID
                 //用卡号查数据库
                 if (classState == 1)//上课
                 {
+                    time= DateTime.Now.ToLongTimeString().ToString();
+                    sql = "update student set cardtime='"+time+"' where cardid='"+str+"'";
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    SqlDataReader sread_stu = cmd.ExecuteReader();
+                    sread_stu.Close();
+                    read_studentList();
 
+                    sql = "select stname,stnum from student where cardid='" + str + "'";
+                    cmd = new SqlCommand(sql, con);
+                    sread_stu = cmd.ExecuteReader();
+                    try
+                    {
+                        while (sread_stu.Read())
+                        {
+                            label_message.Text = sread_stu["stname"].ToString().TrimEnd()+"("+ sread_stu["stnum"].ToString().TrimEnd() + ")刷卡成功";                            
+                        }
+                        sread_stu.Close();
+                    }
+                    catch (Exception msg)
+                    {
+                        throw new Exception(msg.ToString());
+                    }
+                    finally
+                    {
+                        sread_stu.Close();
+                    }
                 }
                 else if (classState == 2)//下课 
                 {
