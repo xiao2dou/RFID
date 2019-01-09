@@ -86,7 +86,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.listView3 = new System.Windows.Forms.ListView();
+            this.listView_allCourse = new System.Windows.Forms.ListView();
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -121,6 +121,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button_stu_refresh_List = new System.Windows.Forms.Button();
+            this.button_class_refresh_List = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -433,7 +434,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(695, 404);
+            this.tabPage5.Size = new System.Drawing.Size(695, 388);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "开卡";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -529,7 +530,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(695, 404);
+            this.tabPage6.Size = new System.Drawing.Size(695, 388);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "请假登记";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -616,6 +617,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button_class_refresh_List);
             this.tabPage3.Controls.Add(this.tabControl3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -632,35 +634,35 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl3.Controls.Add(this.tabPage8);
             this.tabControl3.Controls.Add(this.tabPage9);
-            this.tabControl3.Location = new System.Drawing.Point(0, 3);
+            this.tabControl3.Location = new System.Drawing.Point(0, 27);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(702, 427);
+            this.tabControl3.Size = new System.Drawing.Size(702, 403);
             this.tabControl3.TabIndex = 0;
             // 
             // tabPage8
             // 
-            this.tabPage8.Controls.Add(this.listView3);
+            this.tabPage8.Controls.Add(this.listView_allCourse);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(694, 401);
+            this.tabPage8.Size = new System.Drawing.Size(694, 377);
             this.tabPage8.TabIndex = 0;
             this.tabPage8.Text = "课程列表";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // listView3
+            // listView_allCourse
             // 
-            this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listView_allCourse.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader14,
             this.columnHeader15,
             this.columnHeader16});
-            this.listView3.Location = new System.Drawing.Point(0, 0);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(695, 405);
-            this.listView3.TabIndex = 0;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            this.listView3.View = System.Windows.Forms.View.Details;
+            this.listView_allCourse.Location = new System.Drawing.Point(0, 0);
+            this.listView_allCourse.Name = "listView_allCourse";
+            this.listView_allCourse.Size = new System.Drawing.Size(695, 405);
+            this.listView_allCourse.TabIndex = 0;
+            this.listView_allCourse.UseCompatibleStateImageBehavior = false;
+            this.listView_allCourse.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader14
             // 
@@ -692,7 +694,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(694, 401);
+            this.tabPage9.Size = new System.Drawing.Size(694, 377);
             this.tabPage9.TabIndex = 1;
             this.tabPage9.Text = "课程管理";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -975,6 +977,16 @@
             this.button_stu_refresh_List.UseVisualStyleBackColor = true;
             this.button_stu_refresh_List.Click += new System.EventHandler(this.button_refresh_Click);
             // 
+            // button_class_refresh_List
+            // 
+            this.button_class_refresh_List.Location = new System.Drawing.Point(615, 7);
+            this.button_class_refresh_List.Name = "button_class_refresh_List";
+            this.button_class_refresh_List.Size = new System.Drawing.Size(75, 23);
+            this.button_class_refresh_List.TabIndex = 1;
+            this.button_class_refresh_List.Text = "刷新";
+            this.button_class_refresh_List.UseVisualStyleBackColor = true;
+            this.button_class_refresh_List.Click += new System.EventHandler(this.button_class_refresh_List_Click);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1063,7 +1075,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.ListView listView_allCourse;
         private System.Windows.Forms.ColumnHeader columnHeader14;
         private System.Windows.Forms.ColumnHeader columnHeader15;
         private System.Windows.Forms.ColumnHeader columnHeader16;
@@ -1097,5 +1109,6 @@
         private System.Windows.Forms.ComboBox xk_comboBox;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button button_stu_refresh_List;
+        private System.Windows.Forms.Button button_class_refresh_List;
     }
 }

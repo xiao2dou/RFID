@@ -62,7 +62,7 @@ namespace FRID
                         sql = "insert into users values('" + userName + "','" + password + "');";
                         cmd = new SqlCommand(sql, con);
                         cmd.ExecuteNonQuery();
-                       
+
                         MessageBox.Show("注册成功，请返回登录");
                         clear();
                         Hide();

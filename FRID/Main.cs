@@ -86,12 +86,14 @@ namespace FRID
             con = new SqlConnection(consqlserver);
             con.Open();
 
-            string classroomName ="";
+            string classroomName = "";
             string teacherName = "";
             string courseName = "";
 
             //显示学生列表
             read_studentList();
+            //显示课程列表
+            read_classList();
 
             //查库，显示课名和教师名
             sql = "select jroom,jname,cname from course,JXB where course.cnum=JXB.cnum and jnum='" + jxbNumber + "'";
@@ -101,8 +103,8 @@ namespace FRID
             {
                 if (sread.Read())
                 {
-                    classroomName=sread["jroom"].ToString().TrimEnd();
-                    teacherName= sread["jname"].ToString().TrimEnd();
+                    classroomName = sread["jroom"].ToString().TrimEnd();
+                    teacherName = sread["jname"].ToString().TrimEnd();
                     courseName = sread["cname"].ToString().TrimEnd();
                 }
                 else
@@ -120,7 +122,7 @@ namespace FRID
             }
 
             string time = DateTime.Now.ToLongDateString().ToString() + " " + DateTime.Now.DayOfWeek.ToString();
-            int week= 20;
+            int week = 20;
             label_message.Text = "现在是" + time + "，第" + week + "周\n" + "您所在的教室为" + classroomName;
 
             textBox_courseName.Text = courseName;
@@ -130,7 +132,7 @@ namespace FRID
 
         }
 
-#region 上课主页
+        #region 上课主页
         //确认课程信息
         private void main_button_confirm_Click(object sender, EventArgs e)
         {
@@ -241,8 +243,8 @@ namespace FRID
                 //用卡号查数据库
                 if (classState == 1)//上课
                 {
-                    time= DateTime.Now.ToLongTimeString().ToString();
-                    sql = "update student set cardtime='"+time+"' where cardid='"+str+"'";
+                    time = DateTime.Now.ToLongTimeString().ToString();
+                    sql = "update student set cardtime='" + time + "' where cardid='" + str + "'";
                     SqlCommand cmd = new SqlCommand(sql, con);
                     SqlDataReader sread_stu = cmd.ExecuteReader();
                     sread_stu.Close();
@@ -255,7 +257,7 @@ namespace FRID
                     {
                         while (sread_stu.Read())
                         {
-                            label_message.Text = sread_stu["stname"].ToString().TrimEnd()+"("+ sread_stu["stnum"].ToString().TrimEnd() + ")上课打卡成功";                            
+                            label_message.Text = sread_stu["stname"].ToString().TrimEnd() + "(" + sread_stu["stnum"].ToString().TrimEnd() + ")上课打卡成功";
                         }
                         sread_stu.Close();
                     }
@@ -400,15 +402,22 @@ namespace FRID
             str = "4D39B29F5908040001350207719B350F";
 #endif
 
-            sql = "insert into student(stnum,stname,class,cardid) values('"+stu_number+"','"+stu_name + "','" +stu_class + "','" +str +"');";
-            SqlCommand cmd = new SqlCommand(sql, con);
-            SqlDataReader sread_stu = cmd.ExecuteReader();
-            sread_stu.Close();
+            sql = "insert into student(stnum,stname,class,cardid) values('" + stu_number + "','" + stu_name + "','" + stu_class + "','" + str + "');";
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataReader sread_stu = cmd.ExecuteReader();
+                sread_stu.Close();
+            }
+            catch (Exception msg)
+            {
+                throw new Exception(msg.ToString());
+            }
 
-            MessageBox.Show(stu_name+"开卡成功！\n卡号为："+str);
+            MessageBox.Show(stu_name + "开卡成功！\n卡号为：" + str);
         }
 
-#region 请假登记
+        #region 请假登记
         private void leave_button_search_Click(object sender, EventArgs e)
         {
             string stu_number = leave_textBox_stu_number.Text;
@@ -447,17 +456,74 @@ namespace FRID
         }
 
 
-#endregion
+        #endregion
 
-#endregion
+        #endregion
 
-#region 课程管理
+        #region 课程管理
+        //显示课程列表
+        private void read_classList()
+        {
+            listView_allStudent.Items.Clear();
+            sql = "select cnum,cname,clength from course";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader sread_stu = cmd.ExecuteReader();
+            try
+            {
+                while (sread_stu.Read())
+                {
+                    ListViewItem it = new ListViewItem();
+                    it.Text = sread_stu["cnum"].ToString().TrimEnd();
+                    it.SubItems.Add(sread_stu["cname"].ToString().TrimEnd());
+                    it.SubItems.Add(sread_stu["clength"].ToString().TrimEnd());
+                    listView_allCourse.Items.Add(it);
+                }
+            }
+            catch (Exception msg)
+            {
+                throw new Exception(msg.ToString());
+            }
+            finally
+            {
+                sread_stu.Close();
+            }
+        }
+
+        private void button_class_refresh_List_Click(object sender, EventArgs e)
+        {
+            read_classList();
+        }
+
         //查询课程
         private void class_button_search_Click(object sender, EventArgs e)
         {
             string classNumber = class_textBox_classNumber.Text;
 
             //查课程数据库
+            sql = "select cname,clength from course where cnum='" + classNumber + "'";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader sread = cmd.ExecuteReader();
+            try
+            {
+                if (sread.Read())
+                {
+                    class_textBox_className.Text = sread["cname"].ToString().TrimEnd();
+                    class_textBox_classTime.Text = sread["clength"].ToString().TrimEnd();
+                }
+                else
+                {
+                    MessageBox.Show("课程不存在");
+                }
+            }
+            catch (Exception msg)
+            {
+                throw new Exception(msg.ToString());
+            }
+            finally
+            {
+                sread.Close();
+            }
+
             class_button_edit.Visible = true;
             class_button_saveEdit.Visible = true;
         }
@@ -465,18 +531,48 @@ namespace FRID
         //编辑课程
         private void class_button_edit_Click(object sender, EventArgs e)
         {
+            class_textBox_classNumber.ReadOnly = true;
             class_textBox_className.ReadOnly = false;
             class_textBox_classTime.ReadOnly = false;
         }
         //保存课程修改
         private void class_button_saveEdit_Click(object sender, EventArgs e)
         {
-            //写数据库
+            string courseName = class_textBox_className.Text;
+            string courseTime = class_textBox_classTime.Text;
+            //更新数据库
+            sql = "update course set cname='" + courseName + "'and clength='" + courseTime + "' where cnum='" + class_textBox_classNumber.Text + "'";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader sread_stu = cmd.ExecuteReader();
+            sread_stu.Close();
         }
         //添加课程
         private void class_button_addClass_Click(object sender, EventArgs e)
         {
             //写数据库
+            class_button_search.Visible = false;
+            class_button_edit.Visible = false;
+            class_button_saveEdit.Visible = true;
+            class_textBox_classNumber.ReadOnly = false;
+            class_textBox_className.ReadOnly = false;
+            class_textBox_classTime.ReadOnly = false;
+
+            string classNumber = class_textBox_classNumber.Text;
+            string courseName = class_textBox_className.Text;
+            string courseTime = class_textBox_classTime.Text;
+
+            sql = "insert into course(cnum,cname,clength) values('" + classNumber + "','" + courseName + "','" + courseTime + "');";
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataReader sread_stu = cmd.ExecuteReader();
+                sread_stu.Close();
+                MessageBox.Show("添加课程成功");
+            }
+            catch (Exception msg)
+            {
+                throw new Exception(msg.ToString());
+            }
         }
 
 
